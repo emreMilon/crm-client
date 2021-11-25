@@ -1,6 +1,12 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, } from "react-router-dom";
 
 const Navbar = () => {
+
+  
+  let page = window.location.pathname
+  console.log(page)
+
+
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container-fluid">
@@ -30,11 +36,14 @@ const Navbar = () => {
                 Register
               </NavLink>
             </li>
-            <li className="nav-item">
+            {
+              page === "/"  &&   <li className="nav-item">
               <a className="nav-link" href="#login">
                 Login
               </a>
-            </li>
+            </li> 
+            }
+          
             {/* <li className="nav-item">
                 <NavLink className="nav-link" to="#">Pricing</NavLink>
                 </li>
