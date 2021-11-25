@@ -1,13 +1,16 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { login } from "../../redux/actions/authAction";
 
 const LoginPass = () => {
   const initialState = {
-    account: "",
+    email: "",
     password: "",
   };
   const [userLogin, setUserLogin] = useState(initialState);
   const { email, password } = userLogin;
   const [typePass, setTypePass] = useState(false);
+  const dispatch = useDispatch();
   const handleChangeInput = (e) => {
     const { value, name } = e.target;
     setUserLogin({
@@ -20,8 +23,13 @@ const LoginPass = () => {
     setTypePass(!typePass);
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(login(userLogin));
+  };
+
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <div className="form-group mb-3">
         <label className="form-label" htmlFor="email">
           {" "}
