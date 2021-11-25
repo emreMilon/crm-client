@@ -8,6 +8,7 @@ const App = () => {
   return (
     <Router>
       <Navbar />
+
       <Switch>
       <Route exact path="/" component={PageRender} />
           <Route exact path="/:page" component={PageRender} />

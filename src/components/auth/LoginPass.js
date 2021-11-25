@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { login } from "../../redux/actions/authAction";
+import Alert from "../alert/Alert";
 
 const LoginPass = () => {
   const initialState = {
@@ -61,6 +62,7 @@ const LoginPass = () => {
           <small onClick={handleTypePass}> {typePass ? "Hide" : "Show"} </small>{" "}
         </div>{" "}
       </div>{" "}
+      <Alert />
       <button
         type="submit"
         className="btn btn-dark w-100"
